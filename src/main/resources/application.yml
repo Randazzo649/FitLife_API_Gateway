@@ -1,0 +1,53 @@
+
+server:
+  port: ${SERVER_PORT:8080}
+
+spring:
+  application:
+    name: fitlife-api-gateway
+
+  cloud:
+    gateway:
+      server:
+        webflux:
+          globalcors:
+            add-to-simple-url-handler-mapping: true
+            cors-configurations:
+              "[/**]":
+                allowedOrigins:
+                  - "${FITLIFE_FRONTEND_ORIGIN}"
+                allowedMethods:
+                  - GET
+                  - POST
+                  - PUT
+                  - PATCH
+                  - DELETE
+                  - OPTIONS
+                allowedHeaders:
+                  - "*"
+                allowCredentials: true
+
+          routes:
+            - id: usuario-service
+              uri: ${USUARIO_SERVICE_URI}
+              predicates:
+                - Path=/api/usuarios/**
+
+            - id: treino-service
+              uri: ${TREINO_SERVICE_URI}
+              predicates:
+                - Path=/api/treinos/**
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${JWT_ISSUER_URI}
+          jwk-set-uri: ${JWT_JWK_SET_URI}
+
+fitlife:
+  services:
+    usuario:
+      base-url: ${USUARIO_SERVICE_URI}
+    treino:
+      base-url: ${TREINO_SERVICE_URI}

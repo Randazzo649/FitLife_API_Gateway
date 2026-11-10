@@ -1,0 +1,13 @@
+C:\Users\ricca\Documents\FitLife_API_Gateway\src\main\java\com\fitlife\gateway\ApiGatewayApplication.java
+C:\Users\ricca\Documents\FitLife_API_Gateway\src\main\java\com\fitlife\gateway\bff\client\TreinoServiceClient.java
+C:\Users\ricca\Documents\FitLife_API_Gateway\src\main\java\com\fitlife\gateway\bff\client\UsuarioServiceClient.java
+C:\Users\ricca\Documents\FitLife_API_Gateway\src\main\java\com\fitlife\gateway\bff\controller\DashboardBffController.java
+C:\Users\ricca\Documents\FitLife_API_Gateway\src\main\java\com\fitlife\gateway\bff\dto\DashboardResponse.java
+C:\Users\ricca\Documents\FitLife_API_Gateway\src\main\java\com\fitlife\gateway\bff\service\DashboardBffService.java
+C:\Users\ricca\Documents\FitLife_API_Gateway\src\main\java\com\fitlife\gateway\config\SecurityConfig.java
+C:\Users\ricca\Documents\FitLife_API_Gateway\src\main\java\com\fitlife\gateway\controller\BffController.java
+C:\Users\ricca\Documents\FitLife_API_Gateway\src\main\java\com\fitlife\gateway\dto\UsuarioDTO.java
+C:\Users\ricca\Documents\FitLife_API_Gateway\src\main\java\com\fitlife\gateway\exception\dto\GatewayErrorResponse.java
+C:\Users\ricca\Documents\FitLife_API_Gateway\src\main\java\com\fitlife\gateway\exception\GlobalErrorWebExceptionHandler.java
+C:\Users\ricca\Documents\FitLife_API_Gateway\src\main\java\com\fitlife\gateway\filter\RequestLoggingFilter.java
+C:\Users\ricca\Documents\FitLife_API_Gateway\src\main\java\com\fitlife\gateway\filter\TreinoRequestFilter.java

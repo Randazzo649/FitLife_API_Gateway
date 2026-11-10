@@ -1,0 +1,12 @@
+com\fitlife\gateway\bff\service\DashboardBffService.class
+com\fitlife\gateway\bff\client\UsuarioServiceClient.class
+com\fitlife\gateway\filter\TreinoRequestFilter.class
+com\fitlife\gateway\filter\RequestLoggingFilter.class
+com\fitlife\gateway\ApiGatewayApplication.class
+com\fitlife\gateway\bff\client\TreinoServiceClient.class
+com\fitlife\gateway\exception\dto\GatewayErrorResponse.class
+com\fitlife\gateway\bff\controller\DashboardBffController.class
+com\fitlife\gateway\config\SecurityConfig.class
+com\fitlife\gateway\bff\dto\DashboardResponse.class
+com\fitlife\gateway\exception\GlobalErrorWebExceptionHandler.class
+com\fitlife\gateway\filter\TreinoRequestFilter$Config.class
