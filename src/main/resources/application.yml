@@ -1,53 +1,57 @@
-
 server:
   port: ${SERVER_PORT:8080}
-
 spring:
   application:
     name: fitlife-api-gateway
-
   cloud:
     gateway:
       server:
         webflux:
+          httpclient:
+            connect-timeout: ${GATEWAY_CONNECT_TIMEOUT:5000}
+            response-timeout: ${GATEWAY_RESPONSE_TIMEOUT:10s}
           globalcors:
             add-to-simple-url-handler-mapping: true
             cors-configurations:
               "[/**]":
                 allowedOrigins:
-                  - "${FITLIFE_FRONTEND_ORIGIN}"
-                allowedMethods:
-                  - GET
-                  - POST
-                  - PUT
-                  - PATCH
-                  - DELETE
-                  - OPTIONS
-                allowedHeaders:
-                  - "*"
+                  - "${FITLIFE_FRONTEND_ORIGIN:http://127.0.0.1:5500}"
+                  - "${FITLIFE_CADASTRO_ORIGIN:http://127.0.0.1:8081}"
+                  - "${FITLIFE_PERFIL_ORIGIN:http://127.0.0.1:8082}"
+                  - "${FITLIFE_TREINOS_ORIGIN:http://127.0.0.1:8083}"
+                  - "${FITLIFE_PERSONAL_ORIGIN:http://127.0.0.1:8084}"
+                  - "${FITLIFE_COMUNIDADE_ORIGIN:http://127.0.0.1:8085}"
+                allowedMethods: [GET, POST, PUT, PATCH, DELETE, OPTIONS]
+                allowedHeaders: ["*"]
                 allowCredentials: true
-
           routes:
+            - id: usuario-jwks
+              uri: ${USUARIO_SERVICE_URI:http://localhost:8091}
+              predicates:
+                - Path=/oauth2/jwks
+            - id: usuario-uploads
+              uri: ${USUARIO_SERVICE_URI:http://localhost:8091}
+              predicates:
+                - Path=/uploads/**
             - id: usuario-service
-              uri: ${USUARIO_SERVICE_URI}
+              uri: ${USUARIO_SERVICE_URI:http://localhost:8091}
               predicates:
                 - Path=/api/usuarios/**
-
             - id: treino-service
-              uri: ${TREINO_SERVICE_URI}
+              uri: ${TREINO_SERVICE_URI:http://localhost:8092}
               predicates:
                 - Path=/api/treinos/**
-
+            - id: personal-service
+              uri: ${PERSONAL_SERVICE_URI:http://localhost:8093}
+              predicates:
+                - Path=/api/personais/**
+            - id: comunidade-service
+              uri: ${COMUNIDADE_SERVICE_URI:http://localhost:8094}
+              predicates:
+                - Path=/api/comunidade/**
   security:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: ${JWT_ISSUER_URI}
-          jwk-set-uri: ${JWT_JWK_SET_URI}
-
-fitlife:
-  services:
-    usuario:
-      base-url: ${USUARIO_SERVICE_URI}
-    treino:
-      base-url: ${TREINO_SERVICE_URI}
+          issuer-uri: ${JWT_ISSUER_URI:http://localhost:8091}
+          jwk-set-uri: ${JWT_JWK_SET_URI:http://localhost:8091/oauth2/jwks}
