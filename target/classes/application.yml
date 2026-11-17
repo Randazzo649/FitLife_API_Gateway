@@ -21,6 +21,7 @@ spring:
                   - "${FITLIFE_TREINOS_ORIGIN:http://127.0.0.1:8083}"
                   - "${FITLIFE_PERSONAL_ORIGIN:http://127.0.0.1:8084}"
                   - "${FITLIFE_COMUNIDADE_ORIGIN:http://127.0.0.1:8085}"
+                  - "${FITLIFE_USUARIO_SERVICE_ORIGIN:http://localhost:8091}"
                 allowedMethods: [GET, POST, PUT, PATCH, DELETE, OPTIONS]
                 allowedHeaders: ["*"]
                 allowCredentials: true
