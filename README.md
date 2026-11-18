@@ -50,5 +50,5 @@ As variáveis de origem CORS só afetam chamadas feitas pelo navegador. Requisi�
 - Riccardo Randazzo
 - Yuri Sobezak
 
-##Vídeo
+## Vídeo
 https://www.youtube.com/watch?v=Sv49b03aIbU&feature=youtu.be
